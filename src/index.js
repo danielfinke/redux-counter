@@ -25,8 +25,8 @@ const reducer = (state = initialState, { type }) => {
   }
 };
 
-const incrementAction = { type: INCREMENT };
-const decrementAction = { type: DECREMENT };
+const increment = () => ({ type: INCREMENT });
+const decrement = () => ({ type: DECREMENT });
 
 const store = createStore(reducer);
 
@@ -48,10 +48,7 @@ class Counter extends Component {
 }
 
 const mapStateToProps = ({ count }) => ({ count });
-const mapDispatchToProps = (dispatch) => ({
-  increment: () => dispatch(incrementAction),
-  decrement: () => dispatch(decrementAction),
-});
+const mapDispatchToProps = { increment, decrement };
 
 const ConnectedCounter = connect(mapStateToProps, mapDispatchToProps)(Counter);
 
